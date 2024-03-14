@@ -1,0 +1,25 @@
+-------both master&worker node--------
+yum update -y
+vi docker.sh
+sh docker.sh
+docker --version
+-------inside master node---------
+docker swarm init
+docker ps
+docker node ls
+docker node promote worker
+docker node ls
+docker node demote worker
+docker node ls
+docker service create --replicas=4 --name=login httpd
+docker node ls
+docker ps
+docker stop acc26d6fb48a
+docker rm acc26d6fb48a
+docker ps
+docker container stats
+docker service scale login=7
+docker ps
+docker container stats
+docker service rm login
+docker ps
